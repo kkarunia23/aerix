@@ -1,0 +1,3 @@
+C:\Users\Djordje Pajovic\source\repos\proksi\proksi\obj\Debug\proksi.njsprojAssemblyReference.cache
+C:\Users\Djordje Pajovic\source\repos\proksi\proksi\obj\Debug\proksi.njsproj.CoreCompileInputs.cache
+C:\Users\Djordje Pajovic\source\repos\proksi\proksi\bin\Microsoft.NodejsTools.WebRole.dll
