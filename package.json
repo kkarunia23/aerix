@@ -6,9 +6,7 @@
     "start": "node app"
   },
   "description": "proksi",
-  "author": {
-    "name": ""
-  },
+  "author": "",
   "main": "app.js",
   "dependencies": {
     "body-parser": "^1.19.0",
@@ -26,5 +24,14 @@
     "@types/mime": "^1.3.1",
     "@types/serve-static": "^1.7.32",
     "@types/node": "^8.0.14"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kkarunia23/aerix.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kkarunia23/aerix/issues"
+  },
+  "homepage": "https://github.com/kkarunia23/aerix#readme"
 }
