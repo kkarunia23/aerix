@@ -3,7 +3,6 @@ const url = require('url');
 const querystring = require('querystring');
 const unirest = require("unirest");
 const headerAndQuery = function (a) {
-
     a.query({
         "format": "json",
         "filter": "day",
@@ -12,7 +11,6 @@ const headerAndQuery = function (a) {
         "client_secret": "GVyLWYHnYfeocNaOf0SfIWi2DVnXsTXbb5jELU2x",
         "": ""
     });
-
     a.headers({
         "cache-control": "no-cache",
         "Connection": "keep-alive",
@@ -23,29 +21,26 @@ const headerAndQuery = function (a) {
         "Accept": "*/*",
         "User-Agent": "PostmanRuntime/7.19.0"
     });
-
 };
 module.exports = {
-    
     proxied: function (rt, re) {
         let location = url.parse(rt.url, true).query.loc;
         if (location !== '{ customTagVariable[location] }') {
             let req = unirest("GET", "https://api.aerisapi.com/forecasts/" + location);
             headerAndQuery(req);
-
             req.end(function (res) {
                 if (res.error) {
-                    re.json({ 'temperature': 'unavailable' });
+                    re.json({ temperature: 'unavailable' });
                 }
-//              console.log(res.body.response[0]);
+                //              console.log(res.body.response[0]);
                 if (typeof res.body.response[0] !== 'undefined') {
-                    re.json({ 'temperature': res.body.response[0].periods[0].maxTempC });
+                    re.json({ temperature: JSON.stringify(res.body.response[0].periods[0].maxTempC) });
                 } else {
-                    re.json({ 'temperature': 'unavailable' });
+                    re.json({ temperature: 'unavailable' });
                 }
             });
         } else {
-            re.json({ 'temperature': 'unavailable' });
+            re.json({ temperature: 'unavailable' });
         }
     }
 };
