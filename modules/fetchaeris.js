@@ -2,6 +2,11 @@
 const url = require('url');
 const querystring = require('querystring');
 const unirest = require("unirest");
+const mongoose = require('mongoose');// require mongoose
+const Schema = mongoose.Schema; // create a shorthand for the mongoose Schema constructor
+
+
+
 const headerAndQuery = function (a) {
     a.query({
         "format": "json",

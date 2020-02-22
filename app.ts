@@ -3,7 +3,21 @@ import express = require('express');
 import path = require('path');
 import url = require('url');
 import routes from './routes/index';
+import { create } from 'domain';
 //import users from './routes/user';
+import feeds from './routes/feed';
+const mongoose = require('mongoose');
+const mongoURI = 'mongodb://localhost:27017/aerisdb';
+const Feed = require('./models/feed.js');
+const db = mongoose.connection;
+
+mongoose.connect(mongoURI,
+    () => console.log('Mongo running at', mongoURI)
+);
+
+db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
+db.on('connected', () => console.log('mongo connected: ', mongoURI));
+db.on('disconnected', () => console.log('mongo disconnected'));
 
 var app = express();
 routes.bind(url);
@@ -15,6 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 //app.use('/users', users);
+app.use('/feeds', feeds);
 
 
 // catch 404 and forward to error handler
