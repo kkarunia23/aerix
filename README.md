@@ -26,5 +26,5 @@ Stretch
 Immediate next step:
 * allow input of cityName, countryCode through input field in the creative, and then user can click submit.
 the parameters will be passed to the API URL and then the current temperature will be shown in the creative
-Would this be coded within the creative itself through executeJS as we are calling the API directly, or would there be another route within the nodeJS server. how should i approach this? 
+Would this be coded within the creative itself through executeJS as we are calling the API directly, or would there be another route within the nodeJS server. As i write this, i realize that there is likely no way to make the query loc= to be dynamic, as there is no way to connect between the feed and the builder? any idea on how can i approach this? 
 Alternatively, would there be an API that will be able to pick up user location and then show the weather that is the closest to user location?
