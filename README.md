@@ -24,7 +24,6 @@ Stretch
 * admin app for API
 
 Immediate next step:
-1. How come the real time feed api doesn't work in the example http://qatestwebpage.celtra-test.com//?tag=7c1805a22567f4b0b4c2e980855b2131
-2. allow input of cityName, countryCode through input field in the creative, and then user can click submit.
+* allow input of cityName, countryCode through input field in the creative, and then user can click submit.
 the parameters will be passed to the API URL and then the current temperature will be shown in the creative
-Would this be coded within the creative itself through executeJS as we are calling the API directly, or would there be another route within the nodeJS server
+Would this be coded within the creative itself through executeJS as we are calling the API directly, or would there be another route within the nodeJS server. how should i approach this?
