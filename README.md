@@ -1,6 +1,7 @@
 npm init
 npm install
 npm update
+written in .ts
 
 fetching from aerisweather
 sample Request URL and JSON response https://www.aerisweather.com/wizard/api/options?endpoint=forecasts&action=id
