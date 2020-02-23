@@ -1,6 +1,11 @@
-npm init
-npm install
-npm update
+To Run:
+1. npm init
+2. npm install
+3. npm update
+4. typescript compiler in VS
+5. sudo mongod --dbpath=/Users/kennethceltra/data/db for mongo
+6. nodemon app for the server
+7. yarn start for the react
 
 written in .ts, hence changes in the backend needs to be edited there and then compiled to .js
 
