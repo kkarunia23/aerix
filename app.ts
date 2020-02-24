@@ -11,9 +11,6 @@ const mongoURI = 'mongodb://localhost:27017/aerisdb';
 const Feed = require('./models/feed.js');
 const db = mongoose.connection;
 
-const cors = require('cors');
-
-
 mongoose.connect(mongoURI,
     () => console.log('Mongo running at', mongoURI)
 );
