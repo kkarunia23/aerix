@@ -16,7 +16,6 @@ var app = express();
 
 app.use('*', cors());
 
-
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 
@@ -25,7 +24,6 @@ db.on('connected', () => console.log('mongo connected: ', mongoURI));
 db.on('disconnected', () => console.log('mongo disconnected'));
 
 db.on('open', () => { });
-
 
 var app = express();
 routes.bind(url);
