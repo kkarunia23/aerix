@@ -7,7 +7,7 @@ import { create } from 'domain';
 //import users from './routes/user';
 import feeds from './routes/feed';
 const mongoose = require('mongoose');
-const mongoURI = 'mongodb://localhost:27017/aerisdb';
+const mongoURI = process.env.MONGODB_URI;
 const Feed = require('./models/feed.js');
 const db = mongoose.connection;
 
