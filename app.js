@@ -14,7 +14,12 @@ console.log(MONGODB_URI);
 const db = mongoose.connection;
 var cors = require('cors');
 var app = express();
-app.use('*', cors());
+app.use(function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
 db.on('connected', () => console.log('mongo connected: ', MONGODB_URI));
