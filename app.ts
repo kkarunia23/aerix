@@ -7,7 +7,7 @@ import { create } from 'domain';
 //import users from './routes/user';
 import feeds from './routes/feed';
 const mongoose = require('mongoose');
-const mongoURI = process.env.MONGODB_URI;
+const MONGODB_URI = process.env.MONGODB_URI
 const Feed = require('./models/feed.js');
 const db = mongoose.connection;
 
@@ -20,7 +20,7 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 
 db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
-db.on('connected', () => console.log('mongo connected: ', mongoURI));
+db.on('connected', () => console.log('mongo connected: ', MONGODB_URI));
 db.on('disconnected', () => console.log('mongo disconnected'));
 
 db.on('open', () => { });
