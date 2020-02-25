@@ -7,8 +7,10 @@ import { create } from 'domain';
 //import users from './routes/user';
 import feeds from './routes/feed';
 const mongoose = require('mongoose');
-const MONGODB_URI = process.env.MONGODB_URI
-const Feed = require('./models/feed.js');
+require('dotenv').config();
+
+const MONGODB_URI = process.env.MONGODB_URI;
+console.log(MONGODB_URI);
 const db = mongoose.connection;
 
 var cors = require('cors');
