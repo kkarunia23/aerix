@@ -1,5 +1,4 @@
 ﻿import debug = require('debug');
-import express = require('express');
 import path = require('path');
 import url = require('url');
 import routes from './routes/index';
@@ -12,7 +11,7 @@ require('dotenv').config();
 const MONGODB_URI = process.env.MONGODB_URI;
 console.log(MONGODB_URI);
 const db = mongoose.connection;
-
+var express = require('express');
 var cors = require('cors');
 var app = express();
 

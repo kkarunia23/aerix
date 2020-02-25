@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const debug = require("debug");
-const express = require("express");
 const path = require("path");
 const url = require("url");
 const index_1 = require("./routes/index");
@@ -12,6 +11,7 @@ require('dotenv').config();
 const MONGODB_URI = process.env.MONGODB_URI;
 console.log(MONGODB_URI);
 const db = mongoose.connection;
+var express = require('express');
 var cors = require('cors');
 var app = express();
 app.use(function (req, res, next) {
