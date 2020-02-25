@@ -17,13 +17,15 @@ var app = express();
 app.use('*', cors());
 
 
-mongoose.connect(mongoURI,
-    () => console.log('Mongo running at', mongoURI)
-);
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
+
 
 db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
 db.on('connected', () => console.log('mongo connected: ', mongoURI));
 db.on('disconnected', () => console.log('mongo disconnected'));
+
+db.on('open', () => { });
+
 
 var app = express();
 routes.bind(url);
