@@ -5,12 +5,12 @@ import routes from './routes/index';
 import { create } from 'domain';
 //import users from './routes/user';
 import feeds from './routes/feed';
-var express = require('express');
-var cors = require('cors');
+import express = require('express');
+import cors = require('cors');
 const mongoose = require('mongoose');
 require('dotenv').config();
 
-var app = express();
+let app = express();
 app.use(cors());
 
 const MONGODB_URI = process.env.MONGODB_URI;
