@@ -5,28 +5,23 @@ import routes from './routes/index';
 import { create } from 'domain';
 //import users from './routes/user';
 import feeds from './routes/feed';
+import express = require('express');
+import cors = require('cors');
 const mongoose = require('mongoose');
 require('dotenv').config();
+
+let app = express();
+app.use(cors());
 
 const MONGODB_URI = process.env.MONGODB_URI;
 console.log(MONGODB_URI);
 const db = mongoose.connection;
-var express = require('express');
-var cors = require('cors');
-var app = express();
-
-app.use(cors());
-
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
-
-
 db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
 db.on('connected', () => console.log('mongo connected: ', MONGODB_URI));
 db.on('disconnected', () => console.log('mongo disconnected'));
-
 db.on('open', () => { });
 
-var app = express();
 routes.bind(url);
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
