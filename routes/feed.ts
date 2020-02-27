@@ -19,11 +19,12 @@ router.get('/', (req: express.Request, res: express.Response) => {
     });
 });
 
-router.get('/createfeeds', (req, res) => {
+router.put('/:id', (req, res) => {
 
-    // Feed.create({ name: "weather", isActive: true }, (error, createdFeed) => {
-    //     console.log("created feed", createdFeed);
-    // });
+
+    Feed.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedFeed) => {
+        res.json(updatedFeed);
+    });
 
 });
 

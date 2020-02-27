@@ -28,9 +28,18 @@ router.get('/weather', (req: express.Request, res: express.Response) => {
             res.json({ 'error': 'error 3' });
         }
     });
-
-
 });
+
+router.put('/weather/:id', (req, res) => {
+    Feed.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, Player) => {
+        if (err) {
+            console.log(err);
+        }
+        res.redirect('/weather'); //redirect to the index page
+    });
+
+})
+
 router.get('/', (req: express.Request, res: express.Response) => {
     res.json({ '': '' });
 });

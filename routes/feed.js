@@ -19,10 +19,10 @@ router.get('/', (req, res) => {
         res.json(allFeeds);
     });
 });
-router.get('/createfeeds', (req, res) => {
-    // Feed.create({ name: "weather", isActive: true }, (error, createdFeed) => {
-    //     console.log("created feed", createdFeed);
-    // });
+router.put('/:id', (req, res) => {
+    Feed.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedFeed) => {
+        res.json(updatedFeed);
+    });
 });
 exports.default = router;
 //# sourceMappingURL=feed.js.map

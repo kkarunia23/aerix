@@ -30,6 +30,14 @@ router.get('/weather', (req, res) => {
         }
     });
 });
+router.put('/weather/:id', (req, res) => {
+    Feed.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, Player) => {
+        if (err) {
+            console.log(err);
+        }
+        res.redirect('/weather'); //redirect to the index page
+    });
+});
 router.get('/', (req, res) => {
     res.json({ '': '' });
 });
