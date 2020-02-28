@@ -20,6 +20,7 @@ router.get('/', (req, res) => {
     });
 });
 router.put('/:id', (req, res) => {
+    console.log('this is' + req.body);
     Feed.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedFeed) => {
         res.json(updatedFeed);
     });

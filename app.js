@@ -46,6 +46,9 @@ if (app.get('env') === 'development') {
         });
     });
 }
+app.use(express.urlencoded({ extended: false })); // extended: false - does not allow nested objects in query strings
+app.use(express.json()); // returns middleware that only parses JSON
+
 // production error handler
 // no stacktraces leaked to user
 app.use((err, req, res, next) => {

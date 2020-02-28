@@ -9,7 +9,7 @@ const bodyParser = require('body-parser');
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
 const Feed = require('../models/feed.js');
 
-router.get('/weather', (req: express.Request, res: express.Response) => {
+router.get('/', (req: express.Request, res: express.Response) => {
     Feed.findOne({ name: "weather" }, (error, feed) => {
         if (error) {
             console.log("error", error);
@@ -30,12 +30,12 @@ router.get('/weather', (req: express.Request, res: express.Response) => {
     });
 });
 
-router.put('/weather/:id', (req, res) => {
+router.put('/:id', (req, res) => {
     Feed.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, Player) => {
         if (err) {
             console.log(err);
         }
-        res.redirect('/weather'); //redirect to the index page
+        res.redirect('/'); //redirect to the index page
     });
 
 })
