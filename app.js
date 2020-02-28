@@ -27,6 +27,8 @@ app.set('view engine', 'pug');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index_1.default);
 //app.use('/users', users);
+app.use(express.json()); // returns middleware that only parses JSON
+
 app.use('/feeds', feed_1.default);
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -47,7 +49,6 @@ if (app.get('env') === 'development') {
     });
 }
 app.use(express.urlencoded({ extended: false })); // extended: false - does not allow nested objects in query strings
-app.use(express.json()); // returns middleware that only parses JSON
 
 // production error handler
 // no stacktraces leaked to user
