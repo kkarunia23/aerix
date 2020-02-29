@@ -35,7 +35,7 @@ router.put('/:id', (req, res) => {
         if (err) {
             console.log(err);
         }
-        res.redirect('/'); //redirect to the index page
+        res.redirect('/weather'); //redirect to the index page
     });
 });
 router.get('/', (req, res) => {

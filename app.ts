@@ -1,4 +1,6 @@
-﻿import debug = require('debug');
+﻿
+
+import debug = require('debug');
 import path = require('path');
 import url = require('url');
 import routes from './routes/index';
@@ -29,8 +31,9 @@ app.set('view engine', 'pug');
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
+app.use('/weather', routes);
 //app.use('/users', users);
+app.use(express.json())// returns middleware that only parses JSON
 app.use('/feeds', feeds);
 
 
@@ -55,7 +58,7 @@ if (app.get('env') === 'development') {
     });
 }
 app.use(express.urlencoded({ extended: false }))// extended: false - does not allow nested objects in query strings
-app.use(express.json())// returns middleware that only parses JSON
+
 
 // production error handler
 // no stacktraces leaked to user
